@@ -1,0 +1,10 @@
+<h1>Film#delete</h1>
+
+<h3><%= link_to("Back to Films", admin_films_path) %></h3>
+
+<%= form_for([:admin, @film], :method => 'delete') do |a| %>
+<p>Are you sure to delete film <%= @film.title %>?</p>
+
+<p><%= a.submit("YES") %></p>
+
+<% end %>

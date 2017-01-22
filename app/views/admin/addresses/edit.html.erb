@@ -1,0 +1,49 @@
+<h1>Addresses#edit</h1>
+
+<h3><%= link_to("Back to Customers", admin_customers_path) %></h3>
+
+<%= form_for [:admin, @address] do |a| %>
+<table>
+	<tr>
+		<th>First Name</th>
+		<%= a.fields_for @customer do |c| %>
+		<td><%= c.text_field :first_name %></td>
+	</tr>
+	<tr>
+		<th>Last Name</th>
+		<td><%= c.text_field :last_name %></td>
+	</tr>
+	<tr>
+		<th>Store ID</th>
+		<td><%= c.select(:store_id, 1..2) %></td>
+	</tr>
+		<% end %>
+
+	<tr>
+		<th>Phone Number</th>
+		<td><%= a.text_field :phone %></td>
+	</tr>
+	<tr>
+		<th>Address</th>
+		<td><%= a.text_field :address %></td>
+	</tr>
+	<tr>
+		<th>Address 2</th>
+		<td><%= a.text_field :address2 %></td>
+	</tr>
+	<tr>
+		<th>District</th>
+		<td><%= a.text_field :district %></td>
+	</tr>
+	<tr>
+		<th>City ID</th>
+		<td><%= a.number_field :city_id %></td>
+	</tr>
+	<tr>
+		<th>Postal Code</th>
+		<td><%= a.text_field :postal_code %></td>
+	</tr>
+</table><br />
+
+<%= a.submit %>
+<% end %>

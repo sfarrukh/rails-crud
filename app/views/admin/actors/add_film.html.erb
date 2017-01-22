@@ -1,0 +1,15 @@
+<h1>Add#Films</h1>
+
+<h3><%= link_to("Back to Actors", admin_actors_path) %></h3>
+
+<h3><%= @actor.full_name %> played in the following films:</h3>
+
+<table>
+	<% @actor_films.each do |m| %>
+		<tr>
+			<td><%= m.title %></td>
+		</tr>
+	<% end %>
+</table>
+
+<h2>Add films:</h2>

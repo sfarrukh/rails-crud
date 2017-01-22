@@ -1,0 +1,29 @@
+<% @customers_page = 'Customers Show Page' #refers in layout/admin.html.erb %>
+
+<h3><%= link_to("Back to Customers", admin_customers_path) %></h3>
+<h1>Customer show</h1>
+
+
+<table>
+	<tr>
+		<th>Customer's Name</th>
+		<td><%= @customer.full_name %></td>		
+	</tr>
+	<tr>
+		<th>Address</th>
+		<td><%= @address %></td>
+	</tr>
+	<tr>
+		<th>City</th>
+		<td><%= @city %></td>
+	</tr>
+	<tr>
+		<th>District & zip code</th>
+		<td><%= @district %> <%= @zip_code %></td>
+		
+	</tr>
+	<tr>
+		<th>Country</th>
+		<td><%= @country %></td>
+	</tr>
+</table>

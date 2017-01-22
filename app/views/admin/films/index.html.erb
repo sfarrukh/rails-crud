@@ -1,0 +1,18 @@
+<h3><%= link_to("Main Menu", admin_main_index_path) %></h3>
+
+<h1>Film#index</h1>
+<h3><%= link_to("Add film", new_admin_film_path) %></h3>
+<table>
+	<tr>
+		<th>Film Name</th>
+	</tr>	
+	<% @films.each do |film| %>
+		<tr>
+			<td><%= film.title %></td>
+			<td><%= link_to("Show", admin_film_path(film), :class => 'show action') %></td>
+			<td><%= link_to("Edit", edit_admin_film_path(film), :class => 'edit action') %></td>
+			<td><%= link_to("Delete", delete_admin_film_path(film), :class => 'delete action') %></td>
+			<td><%#= link_to("Actors", admin_filmactor_path(film), :class => 'show actors') %></td>
+		</tr>
+		<% end %>
+</table>

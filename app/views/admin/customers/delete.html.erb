@@ -1,0 +1,14 @@
+<% @customers_page = 'Customers Delete Page' #refers in layout/admin.html.erb %>
+
+<h3><%= link_to("Back to Customers", admin_customers_path) %></h3>
+
+<h1>Customer#delete</h1>
+<!-- 1st way -->
+<%#= form_for(@customer, :url => customer_path(@customer), :method => 'delete') do |customer| %>
+
+<!-- 2nd way -->
+<%= form_for([:admin, @customer], method: :delete) do |customer| %>
+	<p>Are you sure you want to delete this customer?</p>
+	<p><%= customer.object.full_name %></p>
+	<%= customer.submit("Delete customer") %>
+<% end %>

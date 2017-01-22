@@ -1,0 +1,17 @@
+<h1>Actors#edit</h1>
+
+<h3><%= link_to("Back to Actors", admin_actors_path) %></h3>
+
+<%= form_for [:admin, @actor] do |a| %>
+<table>
+	<tr>
+		<th>Actor's First Name</th>
+		<td><%= a.text_field(:first_name) %></td>
+	</tr>
+	<tr>
+		<th>Actor's Last Name</th>
+		<td><%= a.text_field(:last_name) %></td>
+	</tr>
+</table><br />
+<%= a.submit %>
+<% end %>

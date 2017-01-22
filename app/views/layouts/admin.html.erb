@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Admin's: <%= @customers_page || 'Page'%></title>
+	<%= stylesheet_link_tag('admins', :media => 'all') %>
+</head>
+<body>
+
+<% if !flash[:notice].blank? %>
+	<p><%= flash[:notice] %></p>
+<% end %>
+
+<!-- before yield -->
+	<%= yield %>
+<!-- after layout -->
+
+<div id='results'>
+	
+</div>
+
+</body>
+</html>

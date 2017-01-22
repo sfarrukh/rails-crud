@@ -1,0 +1,19 @@
+<h3><%= link_to("Main Menu", admin_main_index_path) %></h3>
+
+<h1>Actors#index</h1>
+
+<h3><%= link_to("Add new actor", new_admin_actor_path, :class => 'action new') %></h3>
+
+<table>
+	<tr>
+		<th>Actor's Full Name</th>
+	</tr>
+		<% @actors.each do |actor| %>
+		<tr>
+			<td><%= actor.full_name %></td>
+			<td><%= link_to("Show", admin_actor_path(actor), :class => 'action show') %></td>
+			<td><%= link_to("Edit", edit_admin_actor_path(actor), :class => 'action edit') %></td>
+			<td><%= link_to("Delete", delete_admin_actor_path(actor), :class => 'action delete') %></td>
+		</tr>
+		<% end %>
+</table>

@@ -1,0 +1,42 @@
+<h1>Film#show</h1>
+
+<h3><%= link_to("Back to Films", admin_films_path) %></h3>
+
+<table>
+	<tr>
+		<th>Film Name</th>
+		<td><%= @film.title %></td>
+	</tr>
+	<tr>
+		<th>Release Year</th>
+		<td><%= @film.release_year %></td>
+	</tr>
+	<tr>
+		<th>Description</th>
+		<td><%= @film.description %></td>
+	</tr>
+	<tr>
+		<th>Special Features</th>
+		<td><%= @film.special_features %></td>
+	</tr>
+	<tr>
+		<th>Rental Rate</th>
+		<td><%= @film.rental_rate %></td>
+	</tr>
+	<tr>
+		<th>Replacement Cost</th>
+		<td><%= @film.replacement_cost %></td>
+	</tr>
+
+	<tr>
+		<th>Category</th>
+		<td><%#= @film_category.name %></td>
+	</tr>
+</table>
+
+
+	<h3>Following actors played in this film:</h3>
+		<% @film_actors.each do |fa| %>
+			<p><%= fa.full_name %></p>
+		<% end %>
+

@@ -1,0 +1,15 @@
+<h1>Actors#show</h1>
+
+<h3><%= link_to("Back to Actors", admin_actors_path) %></h3>
+
+<table>
+	<tr>
+		<th><%= @actor.full_name %> played in <%= @actor_films.count %> movies</th>
+	</tr>
+	
+	<% @actor_films.each do |af| %>
+		<tr>
+			<td><%= af.title %></td>
+		</tr>
+	<% end %>
+</table>

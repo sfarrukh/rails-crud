@@ -1,0 +1,47 @@
+<% @customers_page = 'Customers Edit Page' #refers in layout/admin.html.erb %>
+
+<h3><%= link_to("Back to Customers", admin_customers_path) %></h3>
+
+<h1>Customer#edit</h1>
+
+<%= form_for [:admin, @customer] do |c| %>
+<table>
+	<tr>
+		<th>First Name</th>
+		<td><%= c.text_field(:first_name) %></td>
+	</tr>
+	<tr>
+		<th>Last Name</th>
+		<td><%= c.text_field(:last_name) %></td>
+	</tr>
+	<tr>
+		<th>Store ID</th>
+		<td><%= c.select(:store_id, 1..2) %></td>
+	</tr>
+	
+	<tr>
+		<th>Address</th>
+			<%= c.fields_for @address do |a| %>
+			<td><%= a.text_field :address %></td>
+	</tr>
+	<tr>
+		<th>Address 2</th>
+			<td><%= a.text_field :address2 %></td>
+	</tr>
+	<tr>
+		<th>District</th>
+			<td><%= a.text_field :district %></td>
+	</tr>
+	<tr>
+		<th>City ID</th>
+			<td><%= a.number_field :city_id %></td>
+	</tr>
+	<tr>
+		<th>Postal Code</th>
+			<td><%= a.text_field :postal_code %></td>
+	</tr>
+		<% end %>
+</table><br />
+
+<%= c.submit %>
+<% end %>
