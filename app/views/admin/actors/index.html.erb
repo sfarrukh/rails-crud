@@ -8,14 +8,16 @@
 
 <table class="table table-striped table-bordered table-hover table-condensed">
 	<tr>
+		<th>#</th>
 		<th>Actor's Full Name</th>
 		<th>Show</th>
 		<th>Edit</th>
 		<th>Delete</th>
 	</tr>
-	
+	<% n = 0 %>
 	<% @actors.each do |actor| %>
 	<tr>
+		<td><%= n += 1 %></td>
 		<td><%= actor.full_name %></td>
 		<td><%= link_to("Show", admin_actor_path(actor), :class => 'action show') %></td>
 		<td><%= link_to("Edit", edit_admin_actor_path(actor), :class => 'action edit') %></td>
