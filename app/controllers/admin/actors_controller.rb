@@ -1,6 +1,4 @@
 class Admin::ActorsController < ApplicationController
-  
-  layout 'admin'
 
   def index
     @actors = Actor.sorted

@@ -1,6 +1,10 @@
+<div class="container">
+
 <% @customers_page = 'Customers Edit Page' #refers in layout/admin.html.erb %>
 
-<h3><%= link_to("Back to Customers", admin_customers_path) %></h3>
+<ul class="nav">
+	<li><%= link_to("Back to Customers", admin_customers_path) %></li>
+</ul>
 
 <h1>Customer#edit</h1>
 
@@ -45,3 +49,5 @@
 
 <%= c.submit %>
 <% end %>
+
+</div>

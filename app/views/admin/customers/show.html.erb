@@ -1,10 +1,11 @@
+<div class="container">
 <% @customers_page = 'Customers Show Page' #refers in layout/admin.html.erb %>
 
-<h3><%= link_to("Back to Customers", admin_customers_path) %></h3>
-<h1>Customer show</h1>
+<ul class="nav">
+	<li><%= link_to("Back to Customers", admin_customers_path) %></li>
+</ul>
 
-
-<table>
+<table class="table table-striped table-bordered table-hover table-condensed">
 	<tr>
 		<th>Customer's Name</th>
 		<td><%= @customer.full_name %></td>		
@@ -27,3 +28,5 @@
 		<td><%= @country %></td>
 	</tr>
 </table>
+
+</div>

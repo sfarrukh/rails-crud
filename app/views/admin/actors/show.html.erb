@@ -1,8 +1,10 @@
-<h1>Actors#show</h1>
+<div class="container">
 
-<h3><%= link_to("Back to Actors", admin_actors_path) %></h3>
+<ul class="nav">
+	<li><%= link_to("Back to Actors", admin_actors_path) %></li>
+</ul>
 
-<table>
+<table class="table table-striped table-bordered table-hover table-condensed">
 	<tr>
 		<th><%= @actor.full_name %> played in <%= @actor_films.count %> movies</th>
 	</tr>
@@ -13,3 +15,5 @@
 		</tr>
 	<% end %>
 </table>
+
+</div>

@@ -1,12 +1,14 @@
-<h1>Actors#delete</h1>
+<div class="container">
 
-<h3><%= link_to("Back to Actors", admin_actors_path) %></h3>
+<ul class="nav">
+	<li><%= link_to("Back to Actors", admin_actors_path) %></li>
+</ul>
 
 <%= form_for([:admin, @actor], :method => 'delete') do |a| %>
-<p>Are you sure to delete actor <%= @actor.full_name %>?</p>
+	<p>Are you sure to delete actor <%= @actor.full_name %>?</p>
 
-<p><%= a.submit %></p>
+	<p><%= a.submit("Delete", class: 'btn btn-danger') %></p>
 
 <% end %>
 
-
+</div>

@@ -1,7 +1,5 @@
 class Admin::CustomersController < ApplicationController
-  
-  # layout 'admin'
-  layout 'application'
+
 
   def index
   	@customers = Customer.sorted

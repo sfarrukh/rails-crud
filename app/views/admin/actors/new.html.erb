@@ -1,17 +1,24 @@
-<h1>Actors#new</h1>
+<div class="container">
 
-<h3><%= link_to("Back to Actors", admin_actors_path) %></h3>
+<ul class="nav">
+	<li><%= link_to("Back to Actors", admin_actors_path) %></li>
+</ul>
+
 
 <%= form_for [:admin, @actor] do |a| %>
-<table>
-	<tr>
-		<th>Actor's First Name</th>
-		<td><%= a.text_field(:first_name) %></td>
-	</tr>
-	<tr>
-		<th>Actor's Last Name</th>
-		<td><%= a.text_field(:last_name) %></td>
-	</tr>
-</table><br />
-<%= a.submit %>
+
+	<div class="form-group">
+		<label>Actor's First Name</label>
+		<%= a.text_field(:first_name, class: 'form-control', placeholder: 'Enter First Name') %>
+	</div>
+	<div class="form-group">
+		<label>Actor's Last Name</label>
+		<%= a.text_field(:last_name, class: 'form-control', placeholder: 'Enter Last Name') %>
+	</div>
+<%= a.submit class: 'btn btn-primary' %>
 <% end %>
+
+
+
+
+</div>

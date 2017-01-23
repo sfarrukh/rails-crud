@@ -1,49 +1,52 @@
+<div class="container">
+
 <h1>Film#new</h1>
 
-<h3><%= link_to("Back to Films", admin_films_path) %></h3>
+<ul class="nav">
+	<li><%= link_to("Back to Films", admin_films_path) %></li>
+</ul>
 
 <%= form_for [:admin, @film] do |f| %>
+	<div class="form-group">
+		<label>Film Name</label>
+		<%= f.text_field(:title, class: 'form-control') %>
+	</div>
+	<div class="form-group">
+		<label>Language ID</label>
+		<%= f.number_field(:language_id, class: 'form-control') %>
+	</div>
+	<div class="form-group">
+		<label>Rental Duration</label>
+		<%= f.number_field(:rental_duration, class: 'form-control') %>
+	</div>
+	<div class="form-group">
+		<label>Rental Rate</label>
+		<%= f.number_field(:rental_rate, class: 'form-control') %>
+	</div>
+	<div class="form-group">
+		<label>Replacement Cost</label>
+		<%= f.number_field(:replacement_cost, class: 'form-control') %>
+	</div>
 
-<table>
-	<tr>
-		<th>Film Name</th>
-		<td><%= f.text_field(:title) %></td>
-	</tr>
-	<tr>
-		<th>Language ID</th>
-		<td><%= f.number_field(:language_id) %></td>
-	</tr>
-	<tr>
-		<th>Rental Duration</th>
-		<td><%= f.number_field(:rental_duration) %></td>
-	</tr>
-	<tr>
-		<th>Rental Rate</th>
-		<td><%= f.number_field(:rental_rate) %>$</td>
-	</tr>
-	<tr>
-		<th>Replacement Cost</th>
-		<td><%= f.number_field(:replacement_cost) %>$</td>
-	</tr>
-
-	<tr>
-		<th>Release Year</th>
-		<td><%= f.date_field(:release_year) %></td>
-	</tr>
-	<tr>
-		<th>Description</th>
-		<td><%= f.text_area(:description, size: "22x4") %></td>
-	</tr>
-	<tr>
-		<th>Rating</th>
-		<td><%= f.select(:rating, options_for_select(['G', 'PG', 'PG-13', 'R', 'NC-17'])) %></td>
+	<div class="form-group">
+		<label>Release Year</label>
+		<%= f.date_field(:release_year, class: 'form-control') %>
+	</div>
+	<div class="form-group">
+		<label>Description</label>
+		<%= f.text_area(:description, size: "22x4", class: 'form-control') %>
+	</div>
+	<div class="form-group">
+		<label>Rating</label>
+		<%= f.select(:rating, options_for_select(['G', 'PG', 'PG-13', 'R', 'NC-17']), class: 'form-control') %>
 			<%#= f.select(:rating [['G', 'G'], ['PG','PG'], ['PG-13', 'PG-13'], ['R', 'R'], ['NC-17', 'NC-17']]) %>
-	</tr>
-	<tr>
-		<th>Special Features</th>
-		<td><%= f.select(:special_features, options_for_select(['Trailers', 'Commentaries', 'Deleted Scenes', 'Behind the Scenes'])) %></td>
-	</tr>
-</table><br />
+	</div>
+	<div class="form-group">
+		<label>Special Features</label>
+		<%= f.select(:special_features, options_for_select(['Trailers', 'Commentaries', 'Deleted Scenes', 'Behind the Scenes']), class: 'form-control') %>
+	</div>
 
-<%= f.submit %>
-<% end %>	
+<%= f.submit class: 'btn btn-warning' %>
+<% end %>
+
+</div>
