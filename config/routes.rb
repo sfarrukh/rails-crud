@@ -13,6 +13,17 @@ Rails.application.routes.draw do
 
   end
 
+  namespace :staff do 
+    resources :main, only: [:index]
+    resources :actors, :films, only: [:index, :show]
+
+    resources :customers, :addresses do 
+      member do
+        get :delete
+      end
+    end
+  end
+
   match ':controller(/:action(/:id))', :via => [:get, :post]
 
 
