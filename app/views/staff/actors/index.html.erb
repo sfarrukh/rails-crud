@@ -1,0 +1,16 @@
+<div class="container">
+
+	<ul class="nav">
+		<li><%= link_to("Main Menu", staff_main_index_path) %></li>
+	</ul>
+
+
+	<div class="form-group">
+		<%= select_tag(:actor_id, options_from_collection_for_select(@actors, :actor_id, :full_name), 
+			prompt: "Select Actor(ress)", :onchange => "selectedActor(this.value)", class: 'form-control' ) %>
+	</div>
+
+
+	<div id="actors"></div>
+
+</div>

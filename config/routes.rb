@@ -24,8 +24,6 @@ Rails.application.routes.draw do
     end
   end
 
-  match ':controller(/:action(/:id))', :via => [:get, :post]
-
 
 
 end

@@ -58,7 +58,7 @@ class Admin::ActorsController < ApplicationController
     @film = Film.find(params[:film_id])
 
     if @actor.films << @film
-      redirect_to(admin_actor_movies_path(:actor_id))
+      redirect_to(admin_actor_path(:actor_id))
     end
   end
 

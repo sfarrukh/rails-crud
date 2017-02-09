@@ -1,0 +1,28 @@
+<div class="container">
+	
+	<ul class="nav">
+		<li><%= link_to("Main Menu", staff_main_index_path) %></li>
+	</ul>
+
+<h3><%= link_to("Add new customer", new_staff_customer_path, :class => 'action new') %></h3>
+
+<table class="table table-striped table-bordered table-hover table-condensed">
+	<tr>
+		<th>#</th>
+		<th>Customer's Full Name</th>
+		<th>Show</th>
+		<th>Edit</th>
+		<th>Delete</th>
+	</tr>
+	<% n = 0 %>
+	<% @customers.each do |customer| %>
+	<tr>
+		<td><%= n += 1 %></td>
+		<td><%= customer.full_name %></td>
+		<td><%= link_to("Show", staff_customer_path(customer), :class => 'action show') %></td>
+		<td><%= link_to("Edit", edit_staff_customer_path(customer), :class => 'action edit') %></td>
+		<td><%= link_to("Delete", delete_staff_customer_path(customer), :class => 'action delete') %></td>
+	</tr>
+	<% end %>
+</table>
+</div>

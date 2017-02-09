@@ -1,0 +1,15 @@
+<div class="container">
+
+<% @customers_page = 'Customers Delete Page' #refers in layout/staff.html.erb %>
+
+<ul class="nav">
+	<li><%= link_to("Back to Customers", staff_customers_path) %></li>
+</ul>
+
+<%= form_for([:staff, @customer], method: 'delete') do |customer| %>
+	<p>Are you sure you want to delete this customer?</p>
+	<p><%= customer.object.full_name %></p>
+	<%= customer.submit("Delete", class: 'btn btn-danger') %>
+<% end %>
+
+</div>

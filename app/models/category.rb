@@ -3,4 +3,6 @@ class Category < ApplicationRecord
 
 	has_many :film_category
 	has_many :film, :through => :film_category
+
+	scope :sorted, lambda { order("name ASC")}
 end

@@ -1,12 +1,12 @@
 <div class="container">
 
-<% @customers_page = 'Customers Edit Page' #refers in layout/admin.html.erb %>
+<% @customers_page = 'Customers Edit Page' #refers in layout/staff.html.erb %>
 
 <ul class="nav">
-	<li><%= link_to("Back to Customers", admin_customers_path) %></li>
+	<li><%= link_to("Back to Customers", staff_customers_path) %></li>
 </ul>
 
-<%= form_for [:admin, @customer] do |c| %>
+<%= form_for [:staff, @customer] do |c| %>
 	<div class="form-group">
 		<label>First Name</label>
 		<%= c.text_field(:first_name, class: 'form-control') %>
