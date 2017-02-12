@@ -7,8 +7,11 @@ class Actor < ApplicationRecord
 	accepts_nested_attributes_for :films
 
 	scope :sorted, lambda { order("first_name ASC")}
+	scope :search, lambda {|actor_search| where(["first_name LIKE ?", "#{actor_search}%"]).or(where(["last_name LIKE ?", "#{actor_search}%"])) }
 
 	def full_name
 		"#{first_name} #{last_name}"
 	end
+
+
 end

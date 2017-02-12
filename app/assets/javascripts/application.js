@@ -15,4 +15,5 @@
 //= require turbolinks
 // require_tree .
 //= require admins
+//= require ajax
 //= require bootstrap.min

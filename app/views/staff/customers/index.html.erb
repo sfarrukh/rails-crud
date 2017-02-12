@@ -1,8 +1,19 @@
 <div class="container">
 	
-	<ul class="nav">
-		<li><%= link_to("Main Menu", staff_main_index_path) %></li>
-	</ul>
+<ul class="nav">
+	<li><%= link_to("Main Menu", staff_main_index_path) %></li>
+</ul>
+
+
+<%= form_tag(staff_customers_path, method: :get) do %>
+	<div class="form-group">
+	  <%= text_field_tag :customer_search, nil, class: 'form-control' %>
+	</div>
+	<div class="form-group">
+	  <%= submit_tag 'Search', class: 'btn btn-primary' %>
+	</div>
+<% end %>
+
 
 <h3><%= link_to("Add new customer", new_staff_customer_path, :class => 'action new') %></h3>
 

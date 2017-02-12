@@ -1,7 +1,7 @@
 class Admin::FilmsController < ApplicationController
   
   def index
-    @films = Film.sorted
+    @films = Film.search(params[:film_search]).sorted
   end
 
   def show

@@ -1,7 +1,7 @@
 class Admin::ActorsController < ApplicationController
 
   def index
-    @actors = Actor.sorted
+    @actors = Actor.search(params[:actor_search]).sorted
   end
 
   def show

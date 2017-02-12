@@ -14,5 +14,15 @@ class Customer < ApplicationRecord
 
 
 	scope :sorted, lambda { order("first_name ASC")}
-	scope :search, lambda {|query| where(['first_name LIKE ?', '%#{query}%']) }
+	scope :search, lambda {|customer_search| where(["first_name LIKE ?", "#{customer_search}%"]).or(where(["last_name LIKE ?", "#{customer_search}%"])) }
+
+	# def self.search(query)
+	# 	if query
+	# 		where('first_name LIKE ?', "%#{query}%")
+	# 	else
+	# 		all
+	# 	end
+	# end
+
+
 end

@@ -6,20 +6,14 @@
 	<li><%= link_to("Main Menu", admin_main_index_path) %></li>
 </ul>
 
-<!-- 1st way -->
-<!-- <script type="text/javascript">hello("Qa")</script> -->
-
-<!-- 2nd way -->
-<%#= javascript_tag ("hello('Qa');") %>
-
-<!-- 3rd way -->
-<%#= javascript_tag do %>
-	<!-- hello('Qa'); -->
-<%# end %>
-
-<!-- 4rth way (sanitize) -->
-<!-- escape_javascript() or j() -->
-<%#= javascript_tag( "j(hello('Qa'))") ); %>
+<%= form_tag(admin_customers_path, method: :get) do %>
+	<div class="form-group">
+	  <%= text_field_tag :customer_search, nil, class: 'form-control' %>
+	</div>
+	<div class="form-group">
+	  <%= submit_tag 'Search', class: 'btn btn-primary' %>
+	</div>
+<% end %>
 
 <h3><%= link_to("Add new customer", new_admin_address_path, :class => 'action new') %></h3>
 

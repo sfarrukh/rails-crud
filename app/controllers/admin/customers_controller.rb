@@ -2,7 +2,7 @@ class Admin::CustomersController < ApplicationController
 
 
   def index
-  	@customers = Customer.sorted
+  	@customers = Customer.search(params[:customer_search]).sorted
   end
 
   def show
