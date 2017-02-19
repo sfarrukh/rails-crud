@@ -5,4 +5,10 @@ class Address < ApplicationRecord
 	accepts_nested_attributes_for :customer
 
 	belongs_to :city
+
+
+	validates :address, presence: true, length: { maximum: 50 }
+	validates :district, :phone, presence: true, length: { maximum: 20 }
+	validates :city_id, presence: true, length: { maximum: 5 }
+
 end

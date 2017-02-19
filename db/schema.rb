@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161130042446) do
+ActiveRecord::Schema.define(version: 20170219011050) do
 
   create_table "actor", primary_key: "actor_id", unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "first_name",  limit: 45,                                      null: false
@@ -19,12 +19,21 @@ ActiveRecord::Schema.define(version: 20161130042446) do
     t.index ["last_name"], name: "idx_actor_last_name", using: :btree
   end
 
-# Could not dump table "address" because of following StandardError
-#   Unknown type 'geometry' for column 'location'
+  create_table "address", primary_key: "address_id", unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "address",     limit: 50,                                      null: false
+    t.string   "address2",    limit: 50
+    t.string   "district",    limit: 20,                                      null: false
+    t.integer  "city_id",     limit: 2,                                       null: false, unsigned: true
+    t.string   "postal_code", limit: 10
+    t.string   "phone",       limit: 20,                                      null: false
+    t.datetime "last_update",            default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.index ["city_id"], name: "idx_fk_city_id", using: :btree
+  end
 
   create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "first_name",      limit: 25
     t.string   "last_name",       limit: 30
+    t.string   "username",        limit: 30
     t.string   "email",           limit: 40
     t.string   "password_digest"
     t.datetime "created_at",                 null: false
