@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+# Admin
   get 'admin', to: 'admin/access#menu'
   get 'admin/access/menu'
   get 'admin/access/login'
@@ -17,6 +18,14 @@ Rails.application.routes.draw do
 
   end
 
+
+# Staff
+  get 'staff', to: 'staff/access#menu'
+  get 'staff/access/menu'
+  get 'staff/access/login'
+  post 'staff/access/attempt_login'
+  get 'staff/access/logout'
+  
   namespace :staff do 
     resources :main, only: [:index]
     resources :actors, :films, only: [:index, :show]
