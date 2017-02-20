@@ -1,5 +1,7 @@
 class Staff::CustomersController < ApplicationController
 
+  before_action :staff_logged_in
+
   def index
     @customers = Customer.search(params[:customer_search]).sorted
   end

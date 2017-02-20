@@ -1,5 +1,7 @@
 class Staff::ActorsController < ApplicationController
 
+	before_action :staff_logged_in
+
 	def index
 		@actors = Actor.sorted
 	end

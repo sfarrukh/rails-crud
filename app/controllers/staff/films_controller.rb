@@ -1,5 +1,7 @@
 class Staff::FilmsController < ApplicationController
 
+	before_action :staff_logged_in
+
 	def index
 		@films = Film.sorted
 	end
