@@ -1,4 +1,11 @@
 <div class="container">
+
+	<% if !flash[:notice].blank? %>
+		<div class="alert alert-warning">
+			<strong><%= flash[:notice] %></strong>
+		</div>
+	<% end %>
+
 	<h1>Admin Main Menu</h1>
 
 	<ul class="nav">

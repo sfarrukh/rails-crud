@@ -1,5 +1,6 @@
 class Admin::CustomersController < ApplicationController
 
+  before_action :confirm_logged_in
 
   def index
   	@customers = Customer.search(params[:customer_search]).sorted

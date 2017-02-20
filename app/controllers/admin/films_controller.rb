@@ -1,5 +1,7 @@
 class Admin::FilmsController < ApplicationController
-  
+
+  before_action :confirm_logged_in
+    
   def index
     @films = Film.search(params[:film_search]).sorted
   end

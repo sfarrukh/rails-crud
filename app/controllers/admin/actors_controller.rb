@@ -1,5 +1,7 @@
 class Admin::ActorsController < ApplicationController
 
+  before_action :confirm_logged_in
+   
   def index
     @actors = Actor.search(params[:actor_search]).sorted
   end
