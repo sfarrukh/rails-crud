@@ -1,4 +1,5 @@
 class Admin::AccessController < ApplicationController
+  
   def menu
   end
 

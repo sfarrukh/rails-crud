@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'admin', to: 'access#menu'
+  get 'admin', to: 'admin/access#menu'
   get 'admin/access/menu'
   get 'admin/access/login'
   post 'admin/access/attempt_login'
@@ -9,9 +9,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
   namespace :admin do
-
-    resources :main, only: [:index]
-
     resources :actors, :films, :customers, :addresses do
       member do
         get :delete
