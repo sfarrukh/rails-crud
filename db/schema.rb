@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170219011050) do
+ActiveRecord::Schema.define(version: 20170220015932) do
 
   create_table "actor", primary_key: "actor_id", unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "first_name",  limit: 45,                                      null: false
@@ -160,6 +160,16 @@ ActiveRecord::Schema.define(version: 20170219011050) do
     t.datetime "last_update",               default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.index ["address_id"], name: "idx_fk_address_id", using: :btree
     t.index ["store_id"], name: "idx_fk_store_id", using: :btree
+  end
+
+  create_table "staffs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "first_name",      limit: 25
+    t.string   "last_name",       limit: 30
+    t.string   "username",        limit: 30
+    t.string   "email",           limit: 40
+    t.string   "password_digest"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "store", primary_key: "store_id", unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
