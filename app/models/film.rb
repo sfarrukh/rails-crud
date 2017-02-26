@@ -10,7 +10,7 @@ class Film < ApplicationRecord
 	has_many :category, :through => :film_category
 
 	scope :sorted, lambda { order("title ASC")}
-	scope :search, lambda {|film_search| where(["title LIKE ?", "%#{film_search}%"])}
+	scope :search, lambda {|film_search| where(["title LIKE ?", "#{film_search}%"])}
 
 	# No NULL columns
 	validates :title, presence: true, length: { maximum: 255 }, format: { with: /\A[a-zA-Z]+\z/ }
