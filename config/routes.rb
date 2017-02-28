@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
 #Public
   root to: 'public#index'
-  get 'show', to: 'public#show'
 
 # Admin
   get 'admin', to: 'admin/access#menu'

@@ -1,7 +1,8 @@
 class PublicController < ApplicationController
+  
   def index
+  	@films = Film.search(params[:film_search]).sorted
   end
 
-  def show
-  end
+
 end
