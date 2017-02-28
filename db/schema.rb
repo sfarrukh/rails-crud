@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170220015932) do
+ActiveRecord::Schema.define(version: 20170228032856) do
 
   create_table "actor", primary_key: "actor_id", unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "first_name",  limit: 45,                                      null: false
@@ -58,14 +58,16 @@ ActiveRecord::Schema.define(version: 20170220015932) do
   end
 
   create_table "customer", primary_key: "customer_id", unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "store_id",    limit: 1,                                       null: false, unsigned: true
-    t.string   "first_name",  limit: 45,                                      null: false
-    t.string   "last_name",   limit: 45,                                      null: false
-    t.string   "email",       limit: 50
-    t.integer  "address_id",  limit: 2,                                       null: false, unsigned: true
-    t.boolean  "active",                 default: true,                       null: false
-    t.datetime "create_date",                                                 null: false
-    t.datetime "last_update",            default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.integer  "store_id",        limit: 1,                                       null: false, unsigned: true
+    t.string   "first_name",      limit: 45,                                      null: false
+    t.string   "last_name",       limit: 45,                                      null: false
+    t.string   "username",        limit: 30
+    t.string   "password_digest"
+    t.string   "email",           limit: 50
+    t.integer  "address_id",      limit: 2,                                       null: false, unsigned: true
+    t.boolean  "active",                     default: true,                       null: false
+    t.datetime "create_date",                                                     null: false
+    t.datetime "last_update",                default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.index ["address_id"], name: "idx_fk_address_id", using: :btree
     t.index ["last_name"], name: "idx_last_name", using: :btree
     t.index ["store_id"], name: "idx_fk_store_id", using: :btree
