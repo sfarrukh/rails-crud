@@ -7,6 +7,10 @@ class Customer < ApplicationRecord
 	# accepts_nested_attributes_for :address
 	belongs_to :address
 
+	has_many :rental #2
+	has_many :inventory, :through => :rental #4
+	has_many :film, :through => :inventory #5 
+
 	# has_one :city, :through => 'address'
 	# has_one :country, :through => 'city'
 

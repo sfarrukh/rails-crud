@@ -9,6 +9,9 @@ class Film < ApplicationRecord
 	has_many :film_category
 	has_many :category, :through => :film_category
 
+	has_many :inventory #3
+	belongs_to :customer #5
+
 	scope :sorted, lambda { order("title ASC")}
 	scope :search, lambda {|film_search| where(["title LIKE ?", "#{film_search}%"])}
 
