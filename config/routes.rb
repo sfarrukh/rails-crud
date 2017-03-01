@@ -4,6 +4,17 @@ Rails.application.routes.draw do
 #Public
   root to: 'public#index'
 
+#Customers
+  get 'account', to: 'account/access#menu'
+  get 'account/access/menu'
+  get 'account/access/login'
+  post 'account/access/attempt_login'
+  get 'account/access/logout'
+
+  resources :account do
+    resources :actors, :films, only: [:index, :show]
+  end
+
 # Admin
   get 'admin', to: 'admin/access#menu'
   get 'admin/access/menu'

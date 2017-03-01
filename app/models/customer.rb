@@ -1,6 +1,8 @@
 class Customer < ApplicationRecord
 	self.table_name = "customer"
 
+	has_secure_password
+
 	# has_one :address, :class_name => "Address", :foreign_key => "address_id"
 	# accepts_nested_attributes_for :address
 	belongs_to :address

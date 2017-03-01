@@ -17,4 +17,11 @@ class ApplicationController < ActionController::Base
 			end
 		end
 
+		def customer_logged_in
+			unless session[:customer_id]
+				flash[:notice] = "Please log in"
+				redirect_to(account_access_login_path)
+			end
+		end
+
 end
