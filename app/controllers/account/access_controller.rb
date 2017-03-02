@@ -3,6 +3,9 @@ class Account::AccessController < ApplicationController
   before_action :customer_logged_in, :except => [:login, :attempt_login, :logout]
 
   def menu
+    @found_customer = Customer.find(session[:customer_id])
+    @customer = @found_customer.first_name
+    @customer_id = @found_customer.customer_id
   end
 
   def login

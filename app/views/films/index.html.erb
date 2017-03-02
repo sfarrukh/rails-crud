@@ -1,0 +1,19 @@
+<div class="container">
+	
+	<h2>Rented Movies</h2>
+	
+	<table class="table table-striped table-bordered table-hover table-condensed">
+		<tr>
+			<th>#</th>
+			<th>Movie Name</th>
+		</tr>
+		<% n = 0 %>
+		<% @rented_films.each do |film| %>
+			<tr>
+				<td><%= n += 1 %></td>
+				<td><%= film.title %></td>
+			</tr>
+		<% end %>
+	</table>
+
+</div>

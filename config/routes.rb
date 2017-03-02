@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'films/index'
+
 #Public
   root to: 'public#index'
 
