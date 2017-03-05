@@ -16,14 +16,14 @@
 	<tr>
 		<th>#</th>
 		<th>Film Name</th>
-		<th>Show</th>
+		<th>Rent</th>
 	</tr>
 	<% n = 0 %>
 	<% @films.each do |film| %>
 		<tr>
 			<td><%= n += 1 %></td>
 			<td><%= film.title %></td>
-			<td><%= link_to("Rent","", :class => 'btn btn-primary') %></td>
+			<td><%= link_to("Rent", account_access_login_path, :class => 'btn btn-primary') %></td>
 		</tr>
 	<% end %>
 </table>

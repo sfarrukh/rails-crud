@@ -35,5 +35,9 @@ class Account::AccessController < ApplicationController
     redirect_to(account_access_login_path)
   end  
 
+  private
+    def customer_params
+      params.require(:customer).permit(:first_name, :last_name, :store_id, :address_id)
+    end
 
 end

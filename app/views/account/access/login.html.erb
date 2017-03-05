@@ -5,6 +5,8 @@
 			<strong><%= flash[:notice] %></strong>
 		</div>
 	<% end %>
+
+	<h2>Account Login Page</h2>
 	
 	<%= form_tag(account_access_attempt_login_path, method: 'post') do %>
 		<div class="form-group">
@@ -21,4 +23,7 @@
 			<%= submit_tag("Login", class: 'btn btn-primary') %>
 		</div>
 	<% end %>
+
+	<p><%= link_to("Create an account") %></p>
+
 </div>

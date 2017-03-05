@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-
-  get 'films/index'
-
 #Public
   root to: 'public#index'
 
@@ -12,6 +9,9 @@ Rails.application.routes.draw do
   get 'account/access/login'
   post 'account/access/attempt_login'
   get 'account/access/logout'
+
+  # get 'account/access/new'
+  # post 'account/access/create'
 
   resources :account do
     resources :actors, :films, only: [:index, :show]
