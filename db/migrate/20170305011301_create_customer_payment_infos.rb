@@ -4,7 +4,7 @@ class CreateCustomerPaymentInfos < ActiveRecord::Migration[5.0]
     	t.integer "customer_id", :limit => 5
     	t.string "card_number", :limit => 20
     	t.integer "ccv_number", :limit => 3
-    	t.date "exp_date"
+    	t.string "exp_date"
       t.timestamps
     end
   end

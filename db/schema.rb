@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 20170305011301) do
     t.bigint   "customer_id"
     t.string   "card_number", limit: 20
     t.integer  "ccv_number",  limit: 3
-    t.date     "exp_date"
+    t.string   "exp_date"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end

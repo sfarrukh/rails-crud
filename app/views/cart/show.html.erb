@@ -1,0 +1,17 @@
+<div class="container">
+
+	<%  if @customer %>
+		<h4><%= @customer.username %></h4>
+	<% end %>
+
+	<h3>The following items in your cart:</h3>
+
+	<div class="cart-item">
+		<strong><%= @item.title %></strong>
+	</div><br />
+
+	<div>
+		<%= link_to("Checkout", :class => 'btn btn-primary') %>
+	</div>
+
+</div>

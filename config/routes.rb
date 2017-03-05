@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     resources :actors, :films, only: [:index, :show]
   end
 
+  resources :cart, only: [:show]
+
 # Admin
   get 'admin', to: 'admin/access#menu'
   get 'admin/access/menu'

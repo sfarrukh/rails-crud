@@ -1,6 +1,10 @@
 <div class="container">
 
-<h2>Welcome to Films Rental</h2>
+<% if @customer %>
+		<h4>Hi <%= @customer %></h4>
+	<% else %>
+		<h2>Welcome to Films Rental</h2>
+<% end %>
 
 <%= form_tag(root_path, method: :get) do %>
 	<div class="form-group">
@@ -23,7 +27,7 @@
 		<tr>
 			<td><%= n += 1 %></td>
 			<td><%= film.title %></td>
-			<td><%= link_to("Rent", account_access_login_path, :class => 'btn btn-primary') %></td>
+			<td><%= link_to("Rent", cart_path(film), :class => 'btn btn-primary') %></td>
 		</tr>
 	<% end %>
 </table>
