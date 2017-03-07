@@ -1,0 +1,45 @@
+<div class="container">
+	
+	<%  if @customer %>
+		<h4><%= link_to(@customer.username, account_access_menu_path(@customer)) %></h4>
+	<% end %>
+
+	<h4>Shipping Address</h4>
+	<div class="form_group">
+		<p><%= @customer.full_name %></p>
+		<p><%= @address.address %></p>
+		<p><%= @city.city %></p>
+		<p><%= @address.postal_code %></p>		
+	</div><br/>
+
+	<h4>Payment Information:</h4>
+		<p><%= @payment %></p>
+
+	<%= form_tag(checkout_create_path, method: 'post') do %>
+		<h4>Items:</h4>
+		<table class="table table-condensed">
+			<tr>
+				<td><%= @item.title %></td>
+				<td>$<%= @item.rental_rate %></td>
+			</tr>
+			<tr>
+				<td>Tax</td>
+				<td>$<%= @tax %></td>
+			</tr>
+			<tr>
+				<td>TOTAL</td>
+					<% @total = 0 %>
+					<% sum = [@item.rental_rate, @tax] %>
+					<% sum.each do |i| %>
+					<% @total += i %>
+					<% end %>
+				<td>$<%= @total %></td>
+			</tr>
+		</table>
+
+		<div>
+			<%= submit_tag("Confirm", :class => 'btn btn-primary') %>
+		</div>
+	<% end %>	
+
+</div>

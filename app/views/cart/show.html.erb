@@ -4,14 +4,15 @@
 		<h4><%= @customer.username %></h4>
 	<% end %>
 
-	<h3>The following items in your cart:</h3>
+	<h3>Items in your cart:</h3>
 
-	<div class="cart-item">
-		<strong><%= @item.title %></strong>
-	</div><br />
+	<table class="table">
+		<td><%= @item.title %></td>
+		<td><%= @item.rental_rate %></td>
+	</table><br />
 
 	<div>
-		<%= link_to("Checkout", :class => 'btn btn-primary') %>
+		<%= link_to("Checkout", checkout_path(@item), :class => 'btn btn-primary') %>
 	</div>
 
 </div>

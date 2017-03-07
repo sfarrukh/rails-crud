@@ -11,7 +11,7 @@ class Customer < ApplicationRecord
 	has_many :inventory, :through => :rental #4
 	has_many :film, :through => :inventory #5 
 
-	has_many :customer_payment_info
+	has_one :customer_payment_info
 
 	# has_one :city, :through => 'address'
 	# has_one :country, :through => 'city'
