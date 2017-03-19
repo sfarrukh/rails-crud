@@ -7,7 +7,9 @@
 <body>
 
 <% if !flash[:notice].blank? %>
-	<p><%= flash[:notice] %></p>
+	<div class="alert alert-warning">
+		<strong><%= flash[:notice] %></strong>
+	</div>
 <% end %>
 
 <!-- before yield -->

@@ -4,15 +4,21 @@
 		<h4><%= @customer.username %></h4>
 	<% end %>
 
-	<h3>Items in your cart:</h3>
+	<h3>Items in your cart: </h3>
 
 	<table class="table">
-		<td><%= @item.title %></td>
-		<td><%= @item.rental_rate %></td>
+			<% if @film %>
+		<td><%= @film.title %></td>
+		<td><%= @film.rental_rate %></td>
+			<% else %>
+		<td><%= @message %></td>
+			<% end %>
 	</table><br />
 
 	<div>
-		<%= link_to("Checkout", checkout_path(@item), :class => 'btn btn-primary') %>
+		<% if @film %>
+		<%= link_to("Checkout", checkout_path(@film), :class => 'btn btn-primary') %>
+		<% end %>
 	</div>
 
 </div>

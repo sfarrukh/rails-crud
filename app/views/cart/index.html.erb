@@ -1,0 +1,28 @@
+<div class="container">
+
+<h4><%= link_to("Rent more movies", root_path) %></h4>
+
+<h2>Items List</h2>
+
+<% if @a %>
+	<h4><%= @a.title %></h4>
+<% end %>
+
+<h2><%= session[:pending_rent] %></h2>
+<h2><%#= @hash %></h2>
+
+<table class="table table-hover table-condensed">
+
+<% @hash.each do |film, amount| %>
+	<tr>
+		<td><%= film.title %></td>
+		<td><%= film.rental_rate %></td>
+		<td><%= amount %></td>
+		<td><%= link_to("Add", add_cart_path(film)) %></td>
+		<td><%= link_to("Subtract", subtract_cart_path(film)) %></td>
+		<td><%= link_to("Remove", delete_cart_path(film)) %></td>
+		<td><%= film.rental_rate * amount %></td>
+	</tr>
+<% end %>
+</table>
+</div>

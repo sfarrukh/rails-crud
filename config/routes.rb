@@ -20,7 +20,13 @@ Rails.application.routes.draw do
   resources :checkout, only: [:show]
   post 'checkout/create'
 
-  resources :cart, only: [:show] 
+  resources :cart, only: [:index, :show] do
+    member do
+      get :delete
+      get :add
+      get :subtract
+    end
+  end
 
 # Admin
   get 'admin', to: 'admin/access#menu'

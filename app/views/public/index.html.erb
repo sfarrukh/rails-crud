@@ -1,12 +1,24 @@
 <div class="container">
 
+<%= link_to("Sign in", account_access_login_path, class: "nav navbar-nav navbar-right") %>
+
 <% if @customer %>
 		<h4>Hi <%= link_to(@customer, account_access_menu_path(@customer)) %></h4>
 	<% else %>
 		<h2>Welcome to Films Rental</h2>
 <% end %>
 
-<h4><%= session[:total] %></h4>
+
+<% if session[:pending_rent] %>
+	<h4><%= link_to("Cart", cart_index_path) %><span class="badge"><%= session[:pending_rent].count %></span></h4>
+<% end %>
+
+
+	<% if !flash[:notice].blank? %>
+		<div class="alert alert-warning">
+			<strong><%= flash[:notice] %></strong>
+		</div>
+	<% end %>
 
 <%= form_tag(root_path, method: :get) do %>
 	<div class="form-group">
@@ -29,6 +41,7 @@
 		<tr>
 			<td><%= n += 1 %></td>
 			<td><%= film.title %></td>
+			<!-- <td><%#= link_to("Rent", cart_path(film), :class => 'btn btn-primary') %></td> -->
 			<td><%= link_to("Rent", cart_path(film), :class => 'btn btn-primary') %></td>
 		</tr>
 	<% end %>
