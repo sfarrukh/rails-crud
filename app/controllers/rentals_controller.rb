@@ -1,4 +1,4 @@
-class CheckoutController < ApplicationController
+class RentalsController < ApplicationController
 
 	def new
 		if session[:customer_id]
@@ -27,7 +27,7 @@ class CheckoutController < ApplicationController
 
 	private
 		def rental_parameters
-			params.require(:rental).permit(:rental_date, :inventory_id, :customer_id)
+			params.require(:rental).permit(:rental_date, :inventory_id, :customer_id, :staff_id)
 		end
 
 end

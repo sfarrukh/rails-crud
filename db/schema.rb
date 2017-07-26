@@ -19,18 +19,10 @@ ActiveRecord::Schema.define(version: 20170305011301) do
     t.index ["last_name"], name: "idx_actor_last_name", using: :btree
   end
 
-  create_table "address", primary_key: "address_id", unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "address",     limit: 50,                                      null: false
-    t.string   "address2",    limit: 50
-    t.string   "district",    limit: 20,                                      null: false
-    t.integer  "city_id",     limit: 2,                                       null: false, unsigned: true
-    t.string   "postal_code", limit: 10
-    t.string   "phone",       limit: 20,                                      null: false
-    t.datetime "last_update",            default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.index ["city_id"], name: "idx_fk_city_id", using: :btree
-  end
+# Could not dump table "address" because of following StandardError
+#   Unknown type 'geometry' for column 'location'
 
-  create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "first_name",      limit: 25
     t.string   "last_name",       limit: 30
     t.string   "username",        limit: 30
@@ -73,7 +65,7 @@ ActiveRecord::Schema.define(version: 20170305011301) do
     t.index ["store_id"], name: "idx_fk_store_id", using: :btree
   end
 
-  create_table "customer_payment_infos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "customer_payment_infos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.bigint   "customer_id"
     t.string   "card_number", limit: 20
     t.integer  "ccv_number",  limit: 3
@@ -173,7 +165,7 @@ ActiveRecord::Schema.define(version: 20170305011301) do
     t.index ["store_id"], name: "idx_fk_store_id", using: :btree
   end
 
-  create_table "staffs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "staffs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "first_name",      limit: 25
     t.string   "last_name",       limit: 30
     t.string   "username",        limit: 30

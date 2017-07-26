@@ -1,0 +1,63 @@
+<div class="container">
+	
+<%  if @customer %>
+	<h4><%= link_to(@customer.username, account_access_menu_path(@customer)) %></h4>
+<% end %>
+
+<h4><%= link_to("Cart", cart_index_path) %></h4>
+
+<h3>Shipping Address</h3>
+<div class="form_group">
+	<p><%= @customer.full_name %></p>
+	<p><%= @customer.address.address %></p>
+	<p><%= @customer.address.city.city %></p>
+	<p><%= @customer.address.postal_code %></p>		
+</div>
+
+<h3>Payment Information:</h3>
+	<p><%= @customer.customer_payment_info.card_number %></p>
+
+<h3>Order Summary:</h3>
+
+<%= form_tag(rental_create_path) do %>
+	<% hidden_field_tag(:inventory_id, 1, class: 'form-control') %>
+<% end %>
+
+<%= form_for @rental do |rental| %>
+	<div class="form-group">
+		<label>Rental Date</label>
+		<%# rental.date_field(:rental_date, class: 'form-control') %>
+	</div>
+	<div class="form-group">
+		<label>Inventory ID</label>
+		<%= rental.number_field(:inventory_id, class: 'form-control') %>
+	</div>
+	<div class="form-group">
+		<label>Customer ID</label>
+		<%= rental.number_field(:customer_id, class: 'form-control') %>
+	</div>
+	<div class="form-group">
+		<%= rental.number_field(:staff_id, class: 'form-control') %>
+	</div>
+	<%= rental.submit class: 'btn btn-primary' %>
+<% end %>
+
+
+<table class="table">
+	<%#= form_for @rental do |r| %>
+		<%# @hash.each do |film, amount| %>
+			<tr>
+					<%# r.hidden_field(:rental_date) %>
+					<%# r.hidden_field(:inventory_id) %>
+				<td><%#= film.title %></td>
+				<td>$<%#= film.rental_rate %></td>
+				<td><%#= amount %></td>
+				<td>$<%#= film.rental_rate * amount  %></td>
+			</tr>
+		<%# end %>
+	<%#= r.submit class: 'btn btn-primary' %>
+	<%# end %>
+</table>
+
+
+</div>

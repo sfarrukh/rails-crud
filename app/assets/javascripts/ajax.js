@@ -46,3 +46,35 @@
 	// 	    });
 	// 	});
 	// };
+
+// Search films from within actors
+
+	// function searchMovies(str){
+	// 	alert("You just typed "+ str);
+	// }
+
+	function searchMovies(str, id) {
+	  var xhttp;    
+	  if (str == "") {
+	    document.getElementById("films").innerHTML = "";
+	    return;
+	  }
+	  xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	      document.getElementById("films").innerHTML = this.responseText;
+	    }
+	  };
+	  xhttp.open("GET", id+"/films?film_search="+str, true)
+	  xhttp.send();
+	}
+
+	// function unlink(a, b){
+	// 	alert("Hello "+ a + " " + b);
+	// }
+
+	function unlink(actorId, filmId){
+		var xhttp = new XMLHttpRequest();
+		xhttp.open("POST", actorId+"/unlink?film_id="+filmId, true)
+		xhttp.send()
+	}

@@ -10,21 +10,26 @@ class Film < ApplicationRecord
 	has_many :category, :through => :film_category
 
 	has_many :inventory #3
-	belongs_to :customer #5
+	# belongs_to :customer #5
 
 	scope :sorted, lambda { order("title ASC")}
-	scope :search, lambda {|film_search| where(["title LIKE ?", "#{film_search}%"])}
+	scope :search, lambda {|film_search| where(["title LIKE ?", "#{film_search}%"]).or(where("title LIKE ?", "% #{film_search}%"))}
+
+	# def self.search(film_search)
+	# 	where("title LIKE ?", "%#{film_search}")
+	# 	.or(where("title LIKE ?", "#{film_search}%"))
+	# end
 
 	# No NULL columns
-	validates :title, presence: true, length: { maximum: 255 }, format: { with: /\A[a-zA-Z]+\z/ }
-	validates :language_id, :rental_duration, presence: true, length: { maximum: 3 }
-	validates :rental_rate, presence: true, length: { maximum: 6 }
-	validates :replacement_cost, presence: true, length: { maximum: 7 }
+	# validates :title, presence: true, length: { maximum: 255 }, format: { with: /\A[a-zA-Z]+\z/ }
+	# validates :language_id, :rental_duration, presence: true, length: { maximum: 3 }
+	# validates :rental_rate, presence: true, length: { maximum: 6 }
+	# validates :replacement_cost, presence: true, length: { maximum: 7 }
 	
 	# NUllable elements
-	validates :description, format: { with: /\A[a-zA-Z.? ]+\z/ }
-	validates :length, length: { maximum: 5 }
-	validates :rating, format: { with: /'G','PG','PG-13','R','NC-17'/ }
-	validates :special_features, format: { with: /'Trailers','Commentaries','Deleted Scenes','Behind the Scenes'/ }
+	# validates :description, format: { with: /\A[a-zA-Z.? ]+\z/ }
+	# validates :length, length: { maximum: 5 }
+	# validates :rating, format: { with: /'G','PG','PG-13','R','NC-17'/ }
+	# validates :special_features, format: { with: /'Trailers','Commentaries','Deleted Scenes','Behind the Scenes'/ }
 	
 end

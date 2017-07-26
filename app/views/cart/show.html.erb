@@ -6,14 +6,13 @@
 
 	<h3>Items in your cart: </h3>
 
-	<table class="table">
-			<% if @film %>
-		<td><%= @film.title %></td>
-		<td><%= @film.rental_rate %></td>
-			<% else %>
-		<td><%= @message %></td>
-			<% end %>
-	</table><br />
+	<h3><%= @id %></h3>
+	<h3><%= session[:pending_rent].count(@id) %></h3>
+	<h3><%= @film_inventory.count > session[:pending_rent].count(@id) %></h3>
+
+<table class="table">
+
+</table>
 
 	<div>
 		<% if @film %>

@@ -15,6 +15,9 @@ gem 'mysql2', '>= 0.3.18', '< 0.5'
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
+gem 'rack-cors', :require => 'rack/cors'
+gem 'rack-attack'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

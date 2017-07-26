@@ -1,5 +1,11 @@
 <div class="container">
 
+<% if !flash[:notice].blank? %>
+	<div class="alert alert-warning">
+		<strong><%= flash[:notice] %></strong>
+	</div>
+<% end %>
+
 <ul class="nav">
 	<li><%= link_to("Main Menu", admin_access_menu_path) %></li>
 </ul>

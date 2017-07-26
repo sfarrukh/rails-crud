@@ -15,6 +15,20 @@ class Admin::ActorsController < ApplicationController
     # @film_actor = FilmActor.new
   end
 
+  def unlink
+    actor = Actor.find(params[:id])
+    film = Film.find(params[:film_id])
+    if actor.films.delete(film)
+      redirect_to(admin_actor_path)
+    else
+      render('index')
+    end  
+  end
+
+  def films
+    @found_films = Film.search(params[:film_search]).sorted
+  end
+
   def new
     @actor = Actor.new
   end
@@ -37,7 +51,7 @@ class Admin::ActorsController < ApplicationController
     @actor = Actor.find(params[:id])
     if @actor.update_attributes(actor_params)
       flash[:notice] = "Actor '#{@actor.full_name}' updated. "
-      redirect_to(admin_actors_path(@actor))
+      redirect_to(admin_actors_path)
     else
       render('edit')
     end      

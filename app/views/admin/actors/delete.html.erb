@@ -7,7 +7,7 @@
 <%= form_for([:admin, @actor], :method => 'delete') do |a| %>
 	<p>Are you sure to delete actor <%= @actor.full_name %>?</p>
 
-	<p><%= a.submit("Delete", class: 'btn btn-danger') %></p>
+	<p><%= a.submit("Delete", class: 'btn btn-danger btn-block') %></p>
 
 <% end %>
 

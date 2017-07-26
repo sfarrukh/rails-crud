@@ -6,6 +6,10 @@ class PublicController < ApplicationController
     	@found_customer = Customer.find(session[:customer_id])
     	@customer = @found_customer.first_name
     end	
+    
+    if session[:pending_rent]
+    	@cart_count = session[:pending_rent].count
+    end
   end
 
 

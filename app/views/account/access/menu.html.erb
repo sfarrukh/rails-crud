@@ -9,6 +9,8 @@
 	<h4>Hi <%= @customer %></h4>
 	<h1>Main Menu</h1>
 
+	<h4><%= link_to("Cart", cart_index_path) %><span class="badge"><%= @cart_count %></span></h4>
+	
 	<ul class="nav">
 		<li><%= link_to("Account") %></li>
 		<li><%= link_to("Rented Movies", account_films_path(@customer_id)) %></li>

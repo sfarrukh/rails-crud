@@ -19,3 +19,8 @@
         } 
     });
   });
+
+// Add movie to actor(ress)'s played movies list
+function addMovie(actorId, filmId){
+    alert(actorId, filmId);
+}

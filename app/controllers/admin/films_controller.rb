@@ -22,6 +22,7 @@ class Admin::FilmsController < ApplicationController
       flash[:notice] = "Film '#{@film.title}' created. "
       redirect_to(admin_films_path)
     else
+      flash[:notice] = @film.errors.messages
       render('new')
     end
   end
@@ -37,6 +38,7 @@ class Admin::FilmsController < ApplicationController
       redirect_to(admin_films_path)
     else
       render('edit')
+      flash[:notice] = "Film '#{@film.title}' was not able to update. "
     end
   end
 

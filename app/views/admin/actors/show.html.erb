@@ -4,14 +4,21 @@
 	<li><%= link_to("Back to Actors", admin_actors_path) %></li>
 </ul>
 
+<label>Add movies</label>
+<%= text_field_tag(:actor_search, nil, class: 'form-control', onkeyup: "searchMovies(this.value, 11)") %><br />
+
+<div id="films" onclick="addMovie(<%= @actor.actor_id %>, <%= film %>)"></div>
+
 <table class="table table-striped table-bordered table-hover table-condensed">
 	<tr>
 		<th><%= @actor.full_name %> played in <%= @actor_films.count %> movies</th>
+		<th>Action</th>
 	</tr>
 	
 	<% @actor_films.each do |af| %>
 		<tr>
 			<td><%= af.title %></td>
+			<td onclick="unlink(<%= @actor.actor_id %>,<%= af.film_id %>)" class="btn btn-danger btn-sm">Remove</td>
 		</tr>
 	<% end %>
 </table>

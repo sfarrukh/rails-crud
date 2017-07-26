@@ -1,18 +1,15 @@
 <div class="container">
 
-<%= link_to("Sign in", account_access_login_path, class: "nav navbar-nav navbar-right") %>
+
 
 <% if @customer %>
 		<h4>Hi <%= link_to(@customer, account_access_menu_path(@customer)) %></h4>
 	<% else %>
 		<h2>Welcome to Films Rental</h2>
+		<%= link_to("Sign in", account_access_login_path, class: "nav navbar-nav navbar-right") %>
 <% end %>
 
-
-<% if session[:pending_rent] %>
-	<h4><%= link_to("Cart", cart_index_path) %><span class="badge"><%= session[:pending_rent].count %></span></h4>
-<% end %>
-
+<h4><%= link_to("Cart", cart_index_path) %><span class="badge"><%= @cart_count %></span></h4>
 
 	<% if !flash[:notice].blank? %>
 		<div class="alert alert-warning">

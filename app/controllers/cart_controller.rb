@@ -1,17 +1,26 @@
 class CartController < ApplicationController
 
 	def show
-		@film_available = Inventory.where(["film_id = ?", params[:id]])
-		
-		if @film_available.count > 0
-			@film = Film.find(params[:id])
-			(session[:pending_rent] ||= []) && (session[:pending_rent] << @film.film_id) 
-			flash[:notice] = @film.title + " added to cart"
-			redirect_to(root_path)
-		else
-			@film = Film.find(params[:id])
-			flash[:notice] = @film.title + " is currently unavailable"
-			redirect_to(root_path)
+		if @id = params[:id].to_i
+			@film_inventory = Inventory.where(["film_id = ?", @id])
+			
+			if @film_inventory && session[:pending_rent]
+				if @film_inventory.count > session[:pending_rent].count(@id)
+					@film = Film.find(params[:id])
+					(session[:pending_rent] ||= []) && (session[:pending_rent] << @film.film_id) 
+					flash[:notice] = @film.title + " added to cart"
+					redirect_to(root_path)
+				else
+					@film = Film.find(params[:id])
+					flash[:notice] = @film.title + " is out of stock"
+					redirect_to(root_path)
+				end					
+			else
+				@film = Film.find(params[:id])
+				(session[:pending_rent] ||= []) && (session[:pending_rent] << @film.film_id) 
+				flash[:notice] = @film.title + " added to cart"
+				redirect_to(root_path)				
+			end
 		end
 	end
 
@@ -28,8 +37,13 @@ class CartController < ApplicationController
 	end
 
 	def add
-		if params[:id]
+		@id = params[:id].to_i
+		@film_available = Inventory.where(["film_id = ?", @id])
+		if @film_available.count > session[:pending_rent].count(@id)
 			session[:pending_rent] << params[:id].to_i
+			redirect_to(cart_index_path)
+		else
+			flash[:notice] = Film.find(@id).title + " is out of stock"
 			redirect_to(cart_index_path)
 		end
 	end

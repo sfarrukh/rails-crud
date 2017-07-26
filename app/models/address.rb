@@ -6,6 +6,8 @@ class Address < ApplicationRecord
 
 	belongs_to :city
 
+	scope :sorted, lambda { order("address ASC")}
+
 
 	validates :address, presence: true, length: { maximum: 50 }
 	validates :district, :phone, presence: true, length: { maximum: 20 }

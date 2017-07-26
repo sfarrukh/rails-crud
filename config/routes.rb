@@ -17,8 +17,12 @@ Rails.application.routes.draw do
     resources :actors, :films, only: [:index, :show]
   end
 
-  resources :checkout, only: [:show]
+  resources :checkout, only: [:new]
   post 'checkout/create'
+  post 'rental/create'
+
+
+  resources :rentals
 
   resources :cart, only: [:index, :show] do
     member do
@@ -38,13 +42,22 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
   namespace :admin do
-    resources :actors, :films, :customers, :addresses do
+    resources :films, :customers, :addresses do
       member do
         get :delete
       end    
     end
 
+    resources :actors do
+      member do
+        get :delete
+        get :films
+        post :unlink
+      end
+    end
   end
+  # get 'admin/actors/film_search'
+  # post 'admin/actors/:id/unlink/:film_id'
 
 
 # Staff
@@ -64,5 +77,27 @@ Rails.application.routes.draw do
       end
     end
   end
+
+# API
+  # namespace :api do
+  #   resources :actors, :films, :customers, :addresses
+  # end
+
+  namespace :api do
+    resources :actors do
+      get :films
+      get :unlink
+      get :link
+    end
+
+    resources :films do
+      get :actors
+    end 
+
+    resources :customers, :addresses
+  end
+
+  get 'api/search/films'
+  get 'api/search/actors'
 
 end

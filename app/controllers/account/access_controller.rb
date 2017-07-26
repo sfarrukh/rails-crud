@@ -6,6 +6,10 @@ class Account::AccessController < ApplicationController
     @found_customer = Customer.find(session[:customer_id])
     @customer = @found_customer.first_name
     @customer_id = @found_customer.customer_id
+
+    if session[:pending_rent]
+      @cart_count = session[:pending_rent].count
+    end
   end
 
   def login
