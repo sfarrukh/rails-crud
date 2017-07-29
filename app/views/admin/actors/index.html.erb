@@ -10,35 +10,10 @@
 	<li><%= link_to("Main Menu", admin_access_menu_path) %></li>
 </ul>
 
-<%= form_tag(admin_actors_path, method: :get) do %>
-	<div class="form-group">
-	  <%= text_field_tag :actor_search, nil, class: 'form-control' %>
-	</div>
-	<div class="form-group">
-	  <%= submit_tag 'Search', class: 'btn btn-primary' %>
-	</div>
-<% end %>
+<input type="text" onkeyup="searchActors(this.value)" class="form-control"><br />
+
+<div id="actors"></div>
 
 <h3><%= link_to("Add new actor", new_admin_actor_path, :class => 'action new') %></h3>
-
-<table class="table table-striped table-bordered table-hover table-condensed">
-	<tr>
-		<th>#</th>
-		<th>Actor's Full Name</th>
-		<th>Show</th>
-		<th>Edit</th>
-		<th>Delete</th>
-	</tr>
-	<% n = 0 %>
-	<% @actors.each do |actor| %>
-	<tr class="tr">
-		<td><%= n += 1 %></td>
-		<td><%= actor.full_name %></td>
-		<td><%= link_to("Show", admin_actor_path(actor), :class => 'action show') %></td>
-		<td><%= link_to("Edit", edit_admin_actor_path(actor), :class => 'action edit') %></td>
-		<td><%= link_to("Delete", delete_admin_actor_path(actor), :class => 'action delete') %></td>
-	</tr>
-	<% end %>
-</table>
 
 </div>

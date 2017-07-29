@@ -5,6 +5,10 @@ class Admin::ActorsController < ApplicationController
   skip_before_action :verify_authenticity_token
    
   def index
+    
+  end
+
+  def search
     @actors = Actor.search(params[:actor_search]).sorted
   end
 

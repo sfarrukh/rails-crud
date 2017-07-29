@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   get 'admin/access/logout'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  
+  get 'admin/actors/search'
   namespace :admin do
     resources :films, :customers, :addresses do
       member do
@@ -57,7 +57,7 @@ Rails.application.routes.draw do
       end
     end
   end
-  # get 'admin/actors/films'
+  
   # post 'admin/actors/:id/unlink/:film_id'
 
 
