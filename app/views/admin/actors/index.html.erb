@@ -31,7 +31,7 @@
 	</tr>
 	<% n = 0 %>
 	<% @actors.each do |actor| %>
-	<tr>
+	<tr class="tr">
 		<td><%= n += 1 %></td>
 		<td><%= actor.full_name %></td>
 		<td><%= link_to("Show", admin_actor_path(actor), :class => 'action show') %></td>

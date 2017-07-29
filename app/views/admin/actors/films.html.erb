@@ -1,5 +1,7 @@
+
 <div class="list-group">
 	<% @found_films.each do |film|  %>
-		<div class="list-group-item"><%= film.title %></div>
+		<div onclick="link(<%= @actor.actor_id %>, <%= film.film_id %>)" class="list-group-item" >
+			<%= film.title %></div>
 	<% end %>
 </div>

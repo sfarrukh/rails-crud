@@ -53,10 +53,11 @@ Rails.application.routes.draw do
         get :delete
         get :films
         post :unlink
+        post :link
       end
     end
   end
-  # get 'admin/actors/film_search'
+  # get 'admin/actors/films'
   # post 'admin/actors/:id/unlink/:film_id'
 
 

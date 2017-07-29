@@ -66,8 +66,11 @@
 	    }
 	  };
 	  xhttp.open("GET", id+"/films?film_search="+str, true)
+	  // xhttp.open("GET", "/films?film_search="+str, true)
 	  xhttp.send();
 	}
+
+	// Unlink film from actor(ress)
 
 	// function unlink(a, b){
 	// 	alert("Hello "+ a + " " + b);
@@ -78,3 +81,16 @@
 		xhttp.open("POST", actorId+"/unlink?film_id="+filmId, true)
 		xhttp.send()
 	}
+
+
+	// Link film to actor(ress)
+
+    // function link(actorId, filmId){
+    //     alert(actorId + " " + filmId);
+    // }
+
+    function link(actorId, filmId){
+    	var xhttp = new XMLHttpRequest();
+    	xhttp.open("POST", actorId+"/link?film_id="+filmId, true)
+    	xhttp.send()
+    }

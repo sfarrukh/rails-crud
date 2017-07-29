@@ -5,15 +5,15 @@
 </ul>
 
 <label>Add movies</label>
-<%= text_field_tag(:actor_search, nil, class: 'form-control', onkeyup: "searchMovies(this.value, 11)") %><br />
+<%#= text_field_tag(:actor_search, nil, class: 'form-control', 
+		onkeyup: "searchMovies(this.value, @actor.actor_id)") %><br />
+<input type="text" onkeyup="searchMovies(this.value, <%= @actor.actor_id %>)" class="form-control"><br />
 
-<div id="films" onclick="addMovie(<%= @actor.actor_id %>, <%= film %>)"></div>
+<div id="films"></div>
+
+<h3><%= @actor.full_name %> played in <%= @actor_films.count %> movies</h3>
 
 <table class="table table-striped table-bordered table-hover table-condensed">
-	<tr>
-		<th><%= @actor.full_name %> played in <%= @actor_films.count %> movies</th>
-		<th>Action</th>
-	</tr>
 	
 	<% @actor_films.each do |af| %>
 		<tr>

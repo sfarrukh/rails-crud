@@ -1,4 +1,9 @@
-/*table {
-	background-color: #C0C0C0;
-	font-family: Cambria;
-}*/
+
+.list-group-item:hover {
+	background: grey;
+	cursor: pointer;
+}
+
+tr:hover {
+	cursor: pointer;
+}

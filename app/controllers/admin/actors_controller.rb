@@ -1,6 +1,8 @@
 class Admin::ActorsController < ApplicationController
 
   before_action :confirm_logged_in
+
+  skip_before_action :verify_authenticity_token
    
   def index
     @actors = Actor.search(params[:actor_search]).sorted
@@ -15,19 +17,32 @@ class Admin::ActorsController < ApplicationController
     # @film_actor = FilmActor.new
   end
 
+  def films
+    @actor = Actor.find(params[:id])
+    @found_films = Film.search(params[:film_search]).sorted
+  end
+
   def unlink
     actor = Actor.find(params[:id])
     film = Film.find(params[:film_id])
+    
     if actor.films.delete(film)
-      redirect_to(admin_actor_path)
+      redirect_to(admin_actors_path)
     else
       render('index')
     end  
   end
 
-  def films
-    @found_films = Film.search(params[:film_search]).sorted
+  def link
+    actor = Actor.find(params[:id])
+    film = Film.find(params[:film_id])
+
+    if actor.films << film
+      redirect_to(admin_actors_path)
+    end
   end
+
+
 
   def new
     @actor = Actor.new
@@ -66,15 +81,6 @@ class Admin::ActorsController < ApplicationController
     if @actor.destroy
       flash[:notice] = "Actor '#{@actor.full_name}' deleted. "
       redirect_to(admin_actors_path)
-    end
-  end
-
-  def add_film
-    @actor = Actor.find(params[:actor_id])
-    @film = Film.find(params[:film_id])
-
-    if @actor.films << @film
-      redirect_to(admin_actor_path(:actor_id))
     end
   end
 
