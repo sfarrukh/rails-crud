@@ -1,0 +1,19 @@
+<!-- if no match found -->
+<% if !flash[:notice].blank? %>
+	<div class="alert alert-warning">
+		<strong><%= flash[:notice] %></strong>
+	</div>
+<% end %>
+
+
+<!-- list of letter matches -->
+<table class="table table-striped table-bordered table-hover table-condensed">
+	<% @films.each do |film|  %>
+		<tr>
+			<td><%= film.title %></td>
+			<td><%= link_to("Show", admin_film_path(film)) %></td>
+			<td><%= link_to("Edit", edit_admin_film_path(film)) %></td>
+			<td><%= link_to("Delete", delete_admin_film_path(film)) %></td>
+		</tr>
+	<% end %>
+</table>

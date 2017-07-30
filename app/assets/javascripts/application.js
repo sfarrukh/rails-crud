@@ -15,4 +15,5 @@
 //= require admins
 //= require ajax
 //= require admin_customer
+//= require admin_film
 //= require bootstrap.min

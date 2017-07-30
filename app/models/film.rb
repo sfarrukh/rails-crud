@@ -14,6 +14,7 @@ class Film < ApplicationRecord
 
 	scope :sorted, lambda { order("title ASC")}
 	scope :search, lambda {|film_search| where(["title LIKE ?", "#{film_search}%"]).or(where("title LIKE ?", "% #{film_search}%"))}
+	scope :letter, lambda {|first_letter| where(["title LIKE ?", "#{first_letter}%"])}
 
 	# def self.search(film_search)
 	# 	where("title LIKE ?", "%#{film_search}")

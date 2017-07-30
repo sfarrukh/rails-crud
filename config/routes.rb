@@ -42,8 +42,13 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'admin/actors/search'
   get 'admin/actors/letter'
+  
   get 'admin/customers/search'
   get 'admin/customers/letter'
+
+  get 'admin/films/search'
+  get 'admin/films/letter'
+
   namespace :admin do
     resources :films, :customers, :addresses do
       member do

@@ -1,7 +1,5 @@
 <div class="container">
 
-<% @customers_page = 'Customers Page' #refers in layouts/admin.html.erb %>
-
 <% if !flash[:notice].blank? %>
 	<div class="alert alert-warning">
 		<strong><%= flash[:notice] %></strong>
@@ -11,6 +9,8 @@
 <ul class="nav">
 	<li><%= link_to("Main Menu", admin_access_menu_path) %></li>
 </ul>
+
+<h3>Admin Customers Page</h3>
 
 <select onchange="selectedLetterCustomer(this.value)" class="select-styled">
 	<option disabled>Select Letter</option>
@@ -47,7 +47,7 @@
 
 <div id="customers"></div>
 
-<h3><%= link_to("Add new customer", new_admin_address_path, :class => 'action new') %></h3>
+<h3><%= link_to("Add new customer", new_admin_address_path, :class => 'btn btn-primary btn-block') %></h3>
 
 </div>
 

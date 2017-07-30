@@ -3,8 +3,27 @@ class Admin::FilmsController < ApplicationController
   before_action :confirm_logged_in
     
   def index
-    @films = Film.search(params[:film_search]).sorted
+    # @films = Film.search(params[:film_search]).sorted
   end
+
+  def search
+    @films = Film.search(params[:film_search]).sorted
+    if @films.blank?
+      flash[:notice] = "No match found"
+    else
+      flash[:notice] = nil
+    end
+  end
+
+  def letter
+    @films = Film.letter(params[:first_letter])
+    if @films.blank?
+      flash[:notice] = "No match for this letter"
+    else
+      flash[:notice] = nil
+    end    
+  end
+
 
   def show
     @film = Film.find(params[:id])
