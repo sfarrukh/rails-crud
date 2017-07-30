@@ -1,0 +1,19 @@
+<!-- if no match found -->
+<% if !flash[:notice].blank? %>
+	<div class="alert alert-warning">
+		<strong><%= flash[:notice] %></strong>
+	</div>
+<% end %>
+
+
+<!-- list of letter matches -->
+<table class="table table-striped table-bordered table-hover table-condensed">
+	<% @customers.each do |customer|  %>
+		<tr>
+			<td><%= customer.full_name %></td>
+			<td><%= link_to("Show", admin_customer_path(customer)) %></td>
+			<td><%= link_to("Edit", edit_admin_customer_path(customer)) %></td>
+			<td><%= link_to("Delete", delete_admin_customer_path(customer)) %></td>
+		</tr>
+	<% end %>
+</table>

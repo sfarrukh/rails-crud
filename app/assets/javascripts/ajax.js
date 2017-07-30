@@ -108,6 +108,7 @@
 		var xhttp = new XMLHttpRequest();
 		xhttp.open("POST", actorId+"/unlink?film_id="+filmId, true)
 		xhttp.send()
+		
 	}
 
 

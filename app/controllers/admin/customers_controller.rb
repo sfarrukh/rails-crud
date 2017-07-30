@@ -3,7 +3,25 @@ class Admin::CustomersController < ApplicationController
   before_action :confirm_logged_in
 
   def index
-  	@customers = Customer.search(params[:customer_search]).sorted
+  	# @customers = Customer.search(params[:customer_search]).sorted
+  end
+
+  def search
+    @customers = Customer.search(params[:customer_search]).sorted
+    if @customers.blank?
+      flash[:notice] = "No match found"
+    else
+      flash[:notice] = nil
+    end
+  end
+
+  def letter
+    @customers = Customer.letter(params[:first_letter])
+    if @customers.blank?
+      flash[:notice] = "No match for this letter"
+    else
+      flash[:notice] = nil
+    end    
   end
 
   def show

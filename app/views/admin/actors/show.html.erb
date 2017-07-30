@@ -4,9 +4,7 @@
 	<li><%= link_to("Back to Actors", admin_actors_path) %></li>
 </ul>
 
-<label>Add movies</label>
-<%#= text_field_tag(:actor_search, nil, class: 'form-control', 
-		onkeyup: "searchMovies(this.value, @actor.actor_id)") %><br />
+<label>Add movies</label><br />
 <input type="text" onkeyup="searchMovies(this.value, <%= @actor.actor_id %>)" class="form-control"><br />
 
 <div id="films"></div>

@@ -10,9 +10,9 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jQuery_v3.2.1
 //= require turbolinks
 // require_tree .
 //= require admins
 //= require ajax
+//= require admin_customer
 //= require bootstrap.min
