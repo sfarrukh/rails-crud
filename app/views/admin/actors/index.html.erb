@@ -10,10 +10,41 @@
 	<li><%= link_to("Main Menu", admin_access_menu_path) %></li>
 </ul>
 
-<input type="text" onkeyup="searchActors(this.value)" class="form-control"><br />
+<select onchange="selectedLetter(this.value)" class="select-styled">
+	<option disabled>Select Letter</option>
+	<option>A</option>
+	<option>B</option>
+	<option>C</option>
+	<option>D</option>
+	<option>E</option>
+	<option>F</option>
+	<option>G</option>
+	<option>H</option>
+	<option>I</option>
+	<option>J</option>
+	<option>K</option>
+	<option>L</option>
+	<option>M</option>
+	<option>N</option>
+	<option>O</option>
+	<option>P</option>
+	<option>Q</option>
+	<option>R</option>
+	<option>S</option>
+	<option>T</option>
+	<option>U</option>
+	<option>V</option>
+	<option>W</option>
+	<option>X</option>
+	<option>Y</option>
+	<option>Z</option>
+</select>
+<br/><br/>
+
+<input type="text" onkeyup="searchActors(this.value)" class="form-control" placeholder="Search"><br />
 
 <div id="actors"></div>
 
-<h3><%= link_to("Add new actor", new_admin_actor_path, :class => 'action new') %></h3>
+<%= link_to("Add new actor", new_admin_actor_path, :class => 'btn btn-primary btn-block') %>
 
 </div>

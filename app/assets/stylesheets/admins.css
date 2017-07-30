@@ -7,3 +7,11 @@
 tr:hover {
 	cursor: pointer;
 }
+
+.select-styled {
+   width: 150px;
+   height: 30px;
+   border: 1px solid transparent;
+   background-color: #87CEFA;
+   padding: 5px;
+}

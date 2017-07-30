@@ -10,6 +10,20 @@ class Admin::ActorsController < ApplicationController
 
   def search
     @actors = Actor.search(params[:actor_search]).sorted
+    if @actors.blank?
+      flash[:notice] = "No match found"
+    else
+      flash[:notice] = nil
+    end
+  end
+
+  def letter
+    @actors = Actor.letter(params[:first_letter])
+    if @actors.blank?
+      flash[:notice] = "No match for this letter"
+    else
+      flash[:notice] = nil
+    end    
   end
 
   def show

@@ -34,23 +34,30 @@
 	  xhttp.send();
 	}
 
-// jQuery Ajax
-// Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience
-	
-	// function ajaxCall(str){
-	// 	$(document).ready(function(){
-	// 	    $("select").change(function(){
-	// 	        $.ajax({url: "actors/"+str, success: function(result){
-	// 	            $("#actors").html(result);
-	// 	        }});
-	// 	    });
-	// 	});
-	// };
-// Search films from admin/actors page:
-	// function searchActors(str) {
-	// 	alert(str);
-	// } 
 
+	// Selected Letter
+	// function selectedLetter(letter) {
+	// 	alert(letter);
+	// }
+
+	function selectedLetter(letter) {
+	  var xhttp;    
+	  if (letter == "") {
+	    document.getElementById("actors").innerHTML = "";
+	    return;
+	  }
+	  xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	      document.getElementById("actors").innerHTML = this.responseText;
+	    }
+	  };
+	  xhttp.open("GET", "actors/letter?first_letter="+letter, true)
+	  xhttp.send();		
+	}
+
+
+	// Search Actors (admin/actors/search)
 	function searchActors(str) {
 	  var xhttp;    
 	  if (str == "") {
