@@ -1,7 +1,5 @@
 <div class="container">
 
-
-
 <% if @customer %>
 		<h4>Hi <%= link_to(@customer, account_access_menu_path(@customer)) %></h4>
 	<% else %>
@@ -17,31 +15,43 @@
 		</div>
 	<% end %>
 
-<%= form_tag(root_path, method: :get) do %>
-	<div class="form-group">
-	  <%= text_field_tag :film_search, nil, class: 'form-control' %>
-	</div>
-	<div class="form-group">
-	  <%= submit_tag 'Search', class: 'btn btn-primary' %>
-	</div>
-<% end %>
+<select onchange="publicSelectedFilmLetter(this.value)" class="select-styled">
+	<option disabled>Select Letter</option>
+	<option>A</option>
+	<option>B</option>
+	<option>C</option>
+	<option>D</option>
+	<option>E</option>
+	<option>F</option>
+	<option>G</option>
+	<option>H</option>
+	<option>I</option>
+	<option>J</option>
+	<option>K</option>
+	<option>L</option>
+	<option>M</option>
+	<option>N</option>
+	<option>O</option>
+	<option>P</option>
+	<option>Q</option>
+	<option>R</option>
+	<option>S</option>
+	<option>T</option>
+	<option>U</option>
+	<option>V</option>
+	<option>W</option>
+	<option>X</option>
+	<option>Y</option>
+	<option>Z</option>
+</select>
+<br/><br/>
+
+<input type="text" onkeyup="publicSearchFilms(this.value)" class="form-control" placeholder="Search"><br />
+
+<div id="films"></div>
 
 
-<table class="table table-striped table-bordered table-hover table-condensed">
-	<tr>
-		<th>#</th>
-		<th>Film Name</th>
-		<th>Rent</th>
-	</tr>
-	<% n = 0 %>
-	<% @films.each do |film| %>
-		<tr>
-			<td><%= n += 1 %></td>
-			<td><%= film.title %></td>
-			<!-- <td><%#= link_to("Rent", cart_path(film), :class => 'btn btn-primary') %></td> -->
-			<td><%= link_to("Rent", cart_path(film), :class => 'btn btn-primary') %></td>
-		</tr>
-	<% end %>
-</table>
+
+
 
 </div>

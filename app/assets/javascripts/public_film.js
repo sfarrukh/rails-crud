@@ -1,5 +1,5 @@
 	// Look up films by letter
-	function selectedLetterFilm(letter) {
+	function publicSelectedFilmLetter(letter) {
 	  var xhttp;    
 	  if (letter == "") {
 	    document.getElementById("films").innerHTML = "";
@@ -11,12 +11,12 @@
 	      document.getElementById("films").innerHTML = this.responseText;
 	    }
 	  };
-	  xhttp.open("GET", "films/letter?first_letter="+letter, true)
+	  xhttp.open("GET", "public/letter?first_letter="+letter, true)
 	  xhttp.send();		
 	}
 
 	// Search Films (admin/films/search)
-	function searchFilms(str) {
+	function publicSearchFilms(str) {
 	  var xhttp;    
 	  if (str == "") {
 	    document.getElementById("films").innerHTML = "";
@@ -29,6 +29,6 @@
 	    }
 	  };
 	  // really had to work on to figure out not to put '/' in front of '/actors' ))
-	  xhttp.open("GET", "films/search?film_search="+str, true)	
+	  xhttp.open("GET", "public/search?film_search="+str, true)	
 	  xhttp.send();
 	}

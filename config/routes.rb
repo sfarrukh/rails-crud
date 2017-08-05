@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
 #Public
   root to: 'public#index'
+  get 'public/letter'
+  get 'public/search'
 
 #Customers
   get 'account', to: 'account/access#menu'
