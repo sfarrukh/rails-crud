@@ -15,24 +15,27 @@
 </div>
 
 <h3>Payment Information:</h3>
-	<p><%= @customer.customer_payment_info.card_number %></p>
+	<% if @customer.customer_payment_info %>
+		<p><%= @customer.customer_payment_info.card_number %></p>
+	<% else %>
+		<p><%= @customer.first_name %></p>
+	<% end %>
 
 <h3>Order Summary:</h3>
 
+<h3><%= @customer_session %></h3>
+
+<h3><%= @film_session %></h3>
+
 <table class="table">
-	<%= form_for @rental do |r| %>
 		<% @hash.each do |film, amount| %>
 			<tr>
-					<% r.hidden_field(:rental_date) %>
-					<% r.hidden_field(:inventory_id) %>
 				<td><%= film.title %></td>
 				<td>$<%= film.rental_rate %></td>
 				<td><%= amount %></td>
 				<td>$<%= film.rental_rate * amount  %></td>
 			</tr>
 		<% end %>
-	<%= r.submit class: 'btn btn-primary' %>
-	<% end %>
 </table>
 
 

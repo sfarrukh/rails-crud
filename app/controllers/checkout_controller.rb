@@ -3,14 +3,16 @@ class CheckoutController < ApplicationController
 	def new
 		if session[:customer_id]
 			@customer = Customer.find(session[:customer_id])
-			@rental = Rental.new
-			if session[:pending_rent]
-				@hash = Hash.new(0)
-				session[:pending_rent].each do |film|
-					@hash[Film.find(film)] += 1
-				end
-			else
-			end
+			@customer_session = session[:customer_id]
+			@film_session = session[:pending_rent]
+			# @rental = Rental.new
+			# if session[:pending_rent]
+			# 	@hash = Hash.new(0)
+			# 	session[:pending_rent].each do |film|
+			# 		@hash[Film.find(film)] += 1
+			# 	end
+			# else
+			# end
 		else
 			redirect_to(account_access_login_path)
 		end

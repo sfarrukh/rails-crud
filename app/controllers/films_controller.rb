@@ -4,7 +4,7 @@ class FilmsController < ApplicationController
 
 	def index
 		@customer = Customer.find(session[:customer_id])
-		@rented_films = @customer.film.sorted
+		@rented_films = @customer.films.sorted
 	end
 
 	def show

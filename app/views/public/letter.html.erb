@@ -11,7 +11,7 @@
 	<% @films.each do |film|  %>
 		<tr>
 			<td><%= film.title %></td>
-			<td><%= link_to("Rent") %></td>
+			<td><%= link_to("Rent", cart_path(film.film_id)) %></td>
 		</tr>
 	<% end %>
 </table>
