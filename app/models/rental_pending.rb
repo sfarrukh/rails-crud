@@ -1,4 +1,5 @@
 class RentalPending < ApplicationRecord
-	has_one :inventory
-	has_many :customer
+	has_many :inventory, :through => :film
+	belongs_to :customer
+	belongs_to :film
 end

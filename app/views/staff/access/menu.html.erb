@@ -2,7 +2,8 @@
 	<h1>Staff Main Menu</h1>
 
 	<ul class="nav">
-		<li class="nav-item"><%= link_to("Customers", staff_customers_path) %></li>
+		<li><%= link_to("Customers", staff_customers_path) %></li>
+		<li><%= link_to("Orders to process", staff_orders_path)  %></li>
 		<li><%= link_to("Actors", staff_actors_path, {:onmouseover => ""}) %></li>
 		<li><%= link_to("Films", staff_films_path) %></li>
 		<li><%= link_to("Logout", staff_access_logout_path) %></li>

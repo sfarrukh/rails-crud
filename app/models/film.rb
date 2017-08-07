@@ -12,6 +12,7 @@ class Film < ApplicationRecord
 	has_many :inventory #3
 	belongs_to :customer #5
 	has_many :rentals, :through => :inventory
+	has_many :rental_pendings, :foreign_key => :film_id
 
 	scope :sorted, lambda { order("title ASC")}
 	scope :search, lambda {|film_search| where(["title LIKE ?", "#{film_search}%"]).or(where("title LIKE ?", "% #{film_search}%"))}

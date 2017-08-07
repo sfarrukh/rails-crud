@@ -12,6 +12,7 @@ class Customer < ApplicationRecord
 	has_many :films, :through => :inventory #5 
 
 	has_one :customer_payment_info
+	has_many :rental_pendings, :foreign_key => :customer_id
 
 	# has_one :city, :through => 'address'
 	# has_one :country, :through => 'city'

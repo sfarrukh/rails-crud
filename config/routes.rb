@@ -82,6 +82,7 @@ Rails.application.routes.draw do
   namespace :staff do 
     resources :main, only: [:index]
     resources :actors, :films, only: [:index, :show]
+    resources :orders
 
     resources :customers, :addresses do 
       member do

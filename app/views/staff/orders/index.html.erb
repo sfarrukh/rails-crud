@@ -1,0 +1,25 @@
+<div class="container">
+
+<h2>Orders to Process</h2>
+<table class="table">
+	<tr>
+		<th>Customer</th>
+		<th>Film</th>
+		<th>Inventory ID</th>
+		<th>Quantity in Inventory</th>
+		<th>Shipped</th>
+	</tr>
+<% @pending_orders.each do |order| %>
+	<tr>
+		<td><%= link_to(order.customer.full_name, staff_customer_path(order.customer.customer_id)) %></td>
+		<td><%= order.film.title %></td>
+		<td><%= order.inventory.first.inventory_id %></td>
+		<td><%= order.inventory.count %></td>
+		<td>Yes</td>
+	</tr>
+<% end %>
+</table>
+
+
+
+</div>
