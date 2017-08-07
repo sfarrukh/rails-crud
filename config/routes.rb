@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   post 'checkout/create'
   post 'rental/create'
 
+  resources :rental_pendings
 
   resources :rentals
 

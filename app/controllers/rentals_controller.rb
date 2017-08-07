@@ -3,9 +3,11 @@ class RentalsController < ApplicationController
 	def new
 		if session[:customer_id]
 			@customer = Customer.find(session[:customer_id])
-			@cs = session[:customer_id]
-			@fs = session[:pending_rent]
-			@rental = Rental.new
+
+			@pending_process = RentalPending.new()
+
+
+			# @rental = Rental.new
 			if session[:pending_rent]
 				@hash = Hash.new(0)
 				session[:pending_rent].each do |film|

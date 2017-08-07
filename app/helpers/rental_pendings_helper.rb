@@ -1,0 +1,2 @@
+module RentalPendingsHelper
+end
