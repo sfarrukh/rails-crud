@@ -111,6 +111,8 @@ Rails.application.routes.draw do
   end
 
   get 'api/search/films'
+  get 'api/search/films_letter'
   get 'api/search/actors'
+  get 'api/search/actors_letter'
 
 end

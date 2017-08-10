@@ -10,7 +10,7 @@ class Film < ApplicationRecord
 	has_many :category, :through => :film_category
 
 	has_many :inventory #3
-	belongs_to :customer #5
+	# belongs_to :customer #5
 	has_many :rentals, :through => :inventory
 	has_many :rental_pendings, :foreign_key => :film_id
 
