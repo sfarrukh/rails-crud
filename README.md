@@ -1,16 +1,28 @@
-# README
+# Required Installations:
+1. [Ruby](https://www.ruby-lang.org/en/downloads/)
+	
+2. Ruby on Rails Framwork. From terminal/cmd:
+```
+gem install rails
+```
+3. [MYSQL Server](https://dev.mysql.com/downloads/mysql/)
 
-Required Installations:
-	1. Ruby version 2.3.1
-	2. Ruby on Rails 5.0.0
-	3. mySQL Server 5.7 (should include 'sakila' sample database)
-	4. mysql gem
 
-Configurations:
-	1.Gemfile:
-	  gem 'mysql2', '>= 0.3.18', '< 0.5'
-	  gem 'bcrypt', '~> 3.1.7'
 
-	2.config/database.yml:
-	    username: (your username set in mysql)
-  		password: (your password set in mysql)
+# Configuration of the Environment:
+1. Clone 'rails-crud' project to 'your destination'
+```
+cd 'your destination'
+git clone https://github.com/sfarrukh/rails-crud.git
+```
+
+2. Install bundle
+```
+cd 'rails-crud'
+bundle install
+```
+3. Change username/password in 'rails-crud/config/database.yml' to match your mysql database username/password:
+```ruby
+username: 'your username'
+password: 'your password'
+```
