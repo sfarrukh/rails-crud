@@ -9,7 +9,7 @@ gem install rails
 
 
 
-# Configuration of the Environment:
+# Project Configurations:
 1. Clone 'rails-crud' project to 'your destination'
 ```
 cd 'your destination'
